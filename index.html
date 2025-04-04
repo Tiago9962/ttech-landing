@@ -48,16 +48,29 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    .galeria img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 8px;
-      margin: 0.5rem;
-    }
     .galeria-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 1rem;
+    }
+    .galeria-item {
+      position: relative;
+      width: 300px;
+    }
+    .galeria-item img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .galeria-item span {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-size: 0.9rem;
     }
     footer {
       background: #1a237e;
@@ -108,9 +121,18 @@
   <section class="galeria">
     <h2>Serviços Realizados</h2>
     <div class="galeria-container">
-      <img src="img1.jpg" alt="Formatação de computador">
-      <img src="img2.jpg" alt="Limpeza interna de notebook">
-      <img src="img3.jpg" alt="Troca de HD por SSD">
+      <div class="galeria-item">
+        <img src="img1.jpg" alt="Formatação de computador">
+        <span>Formatação de Computador</span>
+      </div>
+      <div class="galeria-item">
+        <img src="img2.jpg" alt="Limpeza interna de notebook">
+        <span>Limpeza Interna de Notebook</span>
+      </div>
+      <div class="galeria-item">
+        <img src="img3.jpg" alt="Troca de HD por SSD">
+        <span>Troca de HD por SSD</span>
+      </div>
     </div>
     <p style="text-align: center; font-size: 0.9rem; color: #666">Essas são imagens de exemplo. Troque por fotos reais dos seus serviços.</p>
   </section>
