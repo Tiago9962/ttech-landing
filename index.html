@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ttech Import - Manutenção de Computadores</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonte Roboto igual ao obrigado.html -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -38,12 +39,6 @@
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      animation: fadeIn 1s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     form input, form textarea {
@@ -58,7 +53,7 @@
     form label {
       display: block;
       margin-bottom: 0.5rem;
-      font-weight: 700;
+      font-weight: bold;
     }
 
     form .checkbox {
@@ -189,7 +184,6 @@
       z-index: 100;
     }
 
-    /* Popup */
     #popup {
       position: fixed;
       top: 20px;
@@ -201,7 +195,6 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
       z-index: 1000;
       display: none;
-      animation: fadeIn 1s ease-in-out;
     }
   </style>
 </head>
@@ -275,7 +268,6 @@
   </footer>
 
   <script>
-    // Mostrar botão de voltar ao topo
     const btnTopo = document.getElementById("btn-topo");
     window.addEventListener("scroll", () => {
       btnTopo.style.display = window.scrollY > 300 ? "block" : "none";
@@ -283,18 +275,6 @@
     btnTopo.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
-
-    // Animações ao rolar
-    const elementos = document.querySelectorAll(".formulario, .galeria, .contato");
-    const observer = new IntersectionObserver((entradas) => {
-      entradas.forEach(entrada => {
-        if (entrada.isIntersecting) {
-          entrada.target.classList.add("visivel");
-        }
-      });
-    }, { threshold: 0.1 });
-
-    elementos.forEach(el => observer.observe(el));
 
     // Popup de boas-vindas
     window.addEventListener("load", () => {
