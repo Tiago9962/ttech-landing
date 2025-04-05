@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ttech Import - Manutenção de Computadores</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -55,7 +61,6 @@
     form .checkbox {
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 0.5rem;
       margin-bottom: 0.5rem;
       flex-wrap: wrap;
@@ -94,7 +99,8 @@
     }
     .galeria-item {
       position: relative;
-      width: 300px;
+      width: 100%;
+      max-width: 300px;
       overflow: hidden;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -104,6 +110,7 @@
       width: 100%;
       display: block;
       transition: transform 0.3s ease;
+      border-radius: 10px;
     }
     .galeria-item:hover img {
       transform: scale(1.05);
@@ -124,6 +131,9 @@
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
+    }
+    footer p {
+      margin: 0;
     }
     .botao-social {
       display: inline-block;
@@ -157,61 +167,75 @@
     <p>Serviços de Formatação e Manutenção de Computadores e Notebooks</p>
   </header>
 
-  <section class="formulario">
-    <h2>Solicite um Orçamento</h2>
-    <form action="https://formsubmit.co/formatatec0@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://tiago9962.github.io/ttech-landing/obrigado.html">
-      <label>👤 Nome</label>
-      <input type="text" name="nome" placeholder="Seu nome" required />
-      <label>📞 Telefone</label>
-      <input type="tel" name="telefone" placeholder="Seu número de telefone" required />
-      <label>✉️ E-mail</label>
-      <input type="email" name="email" placeholder="Seu e-mail" required />
-      <label>🛠️ Serviço desejado</label>
-      <textarea name="interesse" placeholder="Descreva o problema ou serviço que deseja" rows="4" required></textarea>
-      <div class="checkbox">
-        <input type="checkbox" name="consentimento" required>
-        <label for="consentimento">Autorizo o uso dos meus dados para fins de contato e orçamento.</label>
-      </div>
-      <div class="termo">
-        Ao enviar este formulário, você concorda com o uso dos seus dados exclusivamente para fins de atendimento e orçamento por parte da Ttech Import. Consulte nossa <a href="politica-privacidade.html" target="_blank">Política de Privacidade</a>.
-      </div>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+  <main>
+    <section class="formulario">
+      <h2>Solicite um Orçamento</h2>
+      <form action="https://formsubmit.co/formatatec0@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://tiago9962.github.io/ttech-landing/obrigado.html">
+        <label for="nome">👤 Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
 
-  <section class="galeria">
-    <h2>Serviços Realizados</h2>
-    <div class="galeria-container">
-      <div class="galeria-item">
-        <img src="img1.jpg" alt="Formatação de computador">
-        <span>Formatação de Computador</span>
+        <label for="telefone">📞 Telefone</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="Seu número de telefone" required />
+
+        <label for="email">✉️ E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Seu e-mail" required />
+
+        <label for="interesse">🛠️ Serviço desejado</label>
+        <textarea id="interesse" name="interesse" placeholder="Descreva o problema ou serviço que deseja" rows="4" required></textarea>
+
+        <div class="checkbox">
+          <input type="checkbox" id="consentimento" name="consentimento" required>
+          <label for="consentimento">Autorizo o uso dos meus dados para fins de contato e orçamento.</label>
+        </div>
+
+        <div class="termo">
+          Ao enviar este formulário, você concorda com o uso dos seus dados exclusivamente para fins de atendimento e orçamento por parte da Ttech Import. Consulte nossa <a href="politica-privacidade.html" target="_blank">Política de Privacidade</a>.
+        </div>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section class="galeria">
+      <h2>Serviços Realizados</h2>
+      <div class="galeria-container">
+        <div class="galeria-item">
+          <img src="img1.jpg" alt="Formatação de computador" loading="lazy">
+          <span>Formatação de Computador</span>
+        </div>
+        <div class="galeria-item">
+          <img src="img2.jpg" alt="Limpeza interna de notebook" loading="lazy">
+          <span>Limpeza Interna de Notebook</span>
+        </div>
+        <div class="galeria-item">
+          <img src="img3.jpg" alt="Troca de HD por SSD" loading="lazy">
+          <span>Troca de HD por SSD</span>
+        </div>
       </div>
-      <div class="galeria-item">
-        <img src="img2.jpg" alt="Limpeza interna de notebook">
-        <span>Limpeza Interna de Notebook</span>
-      </div>
-      <div class="galeria-item">
-        <img src="img3.jpg" alt="Troca de HD por SSD">
-        <span>Troca de HD por SSD</span>
-      </div>
-    </div>
-  </section>
-  <section class="contato">
-    <h2>Entre em Contato</h2>
-    <a class="botao-social" href="https://wa.me/5582996005534" target="_blank">📱 WhatsApp</a>
-    <a class="botao-social" href="https://www.instagram.com/ttech_import?igsh=MWlzcGhqdWs2a2M4&utm_source=qr" target="_blank">📷 Instagram</a>
-  </section>
+    </section>
+
+    <section class="contato">
+      <h2>Entre em Contato</h2>
+      <a class="botao-social" href="https://wa.me/5582996005534" target="_blank" title="Conversar via WhatsApp">📱 WhatsApp</a>
+      <a class="botao-social" href="https://www.instagram.com/ttech_import" target="_blank" title="Ver perfil no Instagram">📷 Instagram</a>
+    </section>
+  </main>
 
   <div class="whatsapp-float">
-    <a href="https://wa.me/5582996005534" target="_blank">
+    <a href="https://wa.me/5582996005534" target="_blank" title="Fale conosco pelo WhatsApp">
       <img src="whatsapp-icon.png" alt="Fale conosco pelo WhatsApp">
     </a>
   </div>
 
   <footer>
-    <p>&copy; 2025 Ttech Import. Todos os direitos reservados.</p>
+    <p>&copy; <span id="ano"></span> Ttech Import. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    // Atualiza ano dinamicamente
+    document.getElementById("ano").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
