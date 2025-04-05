@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ttech Import - Manutenção de Computadores</title>
-  <!-- Fonte Roboto igual ao obrigado.html -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,35 +11,34 @@
       margin: 0;
       background-color: #f5f5f5;
       color: #1f2a40;
-      scroll-behavior: smooth;
     }
-
     header {
       background: linear-gradient(to right, #004d40, #1a237e);
       color: white;
       padding: 2rem;
       text-align: center;
     }
-
     header img {
       max-width: 300px;
       margin-bottom: 1rem;
     }
-
     section {
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
     }
-
     .formulario, .contato, .galeria {
       margin-top: 2rem;
       background: white;
       padding: 1.5rem;
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      animation: fadeIn 1s ease-in;
     }
-
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     form input, form textarea {
       width: 100%;
       padding: 0.8rem;
@@ -49,13 +47,11 @@
       border-radius: 5px;
       font-size: 1rem;
     }
-
     form label {
       display: block;
       margin-bottom: 0.5rem;
-      font-weight: bold;
+      font-weight: 600;
     }
-
     form .checkbox {
       display: flex;
       align-items: center;
@@ -64,23 +60,19 @@
       margin-bottom: 0.5rem;
       flex-wrap: wrap;
     }
-
     form .termo {
       font-size: 0.75rem;
       color: #666;
       text-align: center;
       margin-top: 0.5rem;
     }
-
     form .termo a {
       color: #004d40;
       text-decoration: none;
     }
-
     form .termo a:hover {
       text-decoration: underline;
     }
-
     form button {
       background: #004d40;
       color: white;
@@ -91,18 +83,15 @@
       transition: background 0.3s;
       font-size: 1rem;
     }
-
     form button:hover {
       background: #00695c;
     }
-
     .galeria-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
     }
-
     .galeria-item {
       position: relative;
       width: 300px;
@@ -111,17 +100,14 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
-
     .galeria-item img {
       width: 100%;
       display: block;
       transition: transform 0.3s ease;
     }
-
     .galeria-item:hover img {
       transform: scale(1.05);
     }
-
     .galeria-item span {
       position: absolute;
       bottom: 8px;
@@ -132,7 +118,6 @@
       border-radius: 5px;
       font-size: 0.9rem;
     }
-
     footer {
       background: #1a237e;
       color: white;
@@ -140,7 +125,6 @@
       padding: 1rem;
       margin-top: 2rem;
     }
-
     .botao-social {
       display: inline-block;
       margin: 0.5rem;
@@ -151,55 +135,42 @@
       text-decoration: none;
       transition: background 0.3s;
     }
-
     .botao-social:hover {
       background: #00695c;
     }
-
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
       right: 20px;
       z-index: 100;
     }
-
     .whatsapp-float img {
       width: 60px;
       height: 60px;
     }
 
-    #btn-topo {
+    /* Botão Voltar ao Topo */
+    .btn-topo {
       position: fixed;
-      bottom: 90px;
+      bottom: 20px;
       left: 20px;
-      background: #1a237e;
+      background-color: #004d40;
       color: white;
+      padding: 0.6rem 1rem;
       border: none;
-      padding: 0.8rem;
-      border-radius: 50%;
-      font-size: 1.2rem;
+      border-radius: 5px;
+      font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      display: none;
       z-index: 100;
-    }
-
-    #popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #004d40;
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
       display: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .btn-topo:hover {
+      background-color: #00695c;
     }
   </style>
 </head>
 <body>
-
   <header>
     <img src="logo.png" alt="Logo da Ttech Import">
     <p>Serviços de Formatação e Manutenção de Computadores e Notebooks</p>
@@ -259,28 +230,21 @@
     </a>
   </div>
 
-  <button id="btn-topo" title="Voltar ao topo">↑</button>
-
-  <div id="popup">Bem-vindo ao site da Ttech Import!</div>
+  <button class="btn-topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Topo</button>
 
   <footer>
     <p>&copy; 2025 Ttech Import. Todos os direitos reservados.</p>
   </footer>
 
   <script>
-    const btnTopo = document.getElementById("btn-topo");
-    window.addEventListener("scroll", () => {
-      btnTopo.style.display = window.scrollY > 300 ? "block" : "none";
-    });
-    btnTopo.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    // Popup de boas-vindas
-    window.addEventListener("load", () => {
-      const popup = document.getElementById("popup");
-      popup.style.display = "block";
-      setTimeout(() => popup.style.display = "none", 4000);
+    // Mostrar ou ocultar botão de voltar ao topo
+    const btnTopo = document.querySelector('.btn-topo');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnTopo.style.display = 'block';
+      } else {
+        btnTopo.style.display = 'none';
+      }
     });
   </script>
 </body>
