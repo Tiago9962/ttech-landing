@@ -40,6 +40,32 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    form .checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    form .checkbox input {
+      margin-right: 0.5rem;
+    }
+    form .termo {
+      font-size: 0.75rem;
+      color: #666;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    form .termo a {
+      color: #004d40;
+      text-decoration: none;
+    }
+    form .termo a:hover {
+      text-decoration: underline;
+    }
     form button {
       background: #004d40;
       color: white;
@@ -109,11 +135,22 @@
 
   <section class="formulario">
     <h2>Solicite um Orçamento</h2>
-    <form action="#" method="POST">
+    <form action="https://formsubmit.co/formatatec0@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://tiago9962.github.io/ttech-landing/obrigado.html">
       <input type="text" name="nome" placeholder="Seu nome" required />
       <input type="tel" name="telefone" placeholder="Seu número de telefone" required />
       <input type="email" name="email" placeholder="Seu e-mail" required />
       <textarea name="interesse" placeholder="Descreva o problema ou serviço que deseja" rows="4" required></textarea>
+
+      <div class="checkbox">
+        <input type="checkbox" name="consentimento" required>
+        <label for="consentimento">Autorizo o uso dos meus dados para fins de contato e orçamento.</label>
+      </div>
+      <div class="termo">
+        Ao enviar este formulário, você concorda com o uso dos seus dados exclusivamente para fins de atendimento e orçamento por parte da Ttech Import. Consulte nossa <a href="politica-privacidade.html" target="_blank">Política de Privacidade</a>.
+      </div>
+
       <button type="submit">Enviar</button>
     </form>
   </section>
